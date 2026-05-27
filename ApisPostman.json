@@ -1,0 +1,81 @@
+{
+  "info": {
+    "name": "Market API - UTP",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {
+      "key": "BASE_URL",
+      "value": "https://actividad-sem9-market.onrender.com"
+    }
+  ],
+  "item": [
+    {
+      "name": "Products",
+      "item": [
+        {
+          "name": "GET All Products",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/products/all"
+          }
+        },
+        {
+          "name": "GET Product by ID",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/products/1"
+          }
+        },
+        {
+          "name": "GET Products by Category",
+          "request": {
+            "method": "GET",
+            "url": "{{BASE_URL}}/products/category/1"
+          }
+        },
+        {
+          "name": "POST Save Product",
+          "request": {
+            "method": "POST",
+            "url": "{{BASE_URL}}/products/save",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Coca Cola 500ml\",\n  \"categoryId\": 3,\n  \"price\": 3.50,\n  \"stock\": 100,\n  \"active\": true\n}"
+            }
+          }
+        },
+        {
+          "name": "PUT Update Product",
+          "request": {
+            "method": "PUT",
+            "url": "{{BASE_URL}}/products/update/1",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"name\": \"Coca Cola 1L\",\n  \"categoryId\": 3,\n  \"price\": 5.00,\n  \"stock\": 80,\n  \"active\": true\n}"
+            }
+          }
+        },
+        {
+          "name": "DELETE Product",
+          "request": {
+            "method": "DELETE",
+            "url": "{{BASE_URL}}/products/delete/1"
+          }
+        }
+      ]
+    }
+  ]
+}
